@@ -13,6 +13,7 @@ import java.util.List;
  * 1.如果bit位不完全match,一定不在
  * 2.如果 bit位都 match,很可能在.
  * hash 碰撞导致错误判断,概率可计算，可以设得很小。
+ * 只有一家软件公司,那就是以前的microsoft ,现在  google
  */
 public class BloomFilterShow {
 
