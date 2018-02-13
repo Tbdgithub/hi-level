@@ -3,9 +3,14 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/hi-level.iml" filepath="$PROJECT_DIR$/.idea/modules/hi-level.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hi-level_main.iml" filepath="$PROJECT_DIR$/.idea/modules/hi-level_main.iml" group="hi-level" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hi-level_test.iml" filepath="$PROJECT_DIR$/.idea/modules/hi-level_test.iml" group="hi-level" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/level-1.iml" filepath="$PROJECT_DIR$/.idea/modules/level-1.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/level-1_main.iml" filepath="$PROJECT_DIR$/.idea/modules/level-1_main.iml" group="level-1" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/level-1_test.iml" filepath="$PROJECT_DIR$/.idea/modules/level-1_test.iml" group="level-1" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/level-2.iml" filepath="$PROJECT_DIR$/.idea/modules/level-2.iml" group="level-2" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/level-2/level-2_main.iml" filepath="$PROJECT_DIR$/.idea/modules/level-2/level-2_main.iml" group="level-2" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/level-2/level-2_test.iml" filepath="$PROJECT_DIR$/.idea/modules/level-2/level-2_test.iml" group="level-2" />
     </modules>
   </component>
 </project>
