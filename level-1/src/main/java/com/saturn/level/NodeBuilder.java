@@ -134,7 +134,84 @@ public class NodeBuilder {
 
     }
 
-    public Node mergeList(Node head0, Node head1) {
+
+    public Node mergeList(Node head1, Node head2)
+    {
+        if(head1==null)
+        {
+            return head2;
+        }
+
+        if(head2==null)
+        {
+            return head1;
+        }
+
+        if(head1==null && head2==null)
+        {
+            return null;
+        }
+
+        //以下为均不为null的head
+
+        Node p1,p2,head;
+
+        //1.找出head,第一个小的
+        //2.初如化p1,p2 指针
+        //3.p1,p2 中较小的放在current 的后面
+        //4.更新current ,p1,p2
+        //5.p1,p2 有一个为空时,current 后面放不为空的p1或者 p2
+
+        if(head1.data<=head2.data)
+        {
+            head=head1;
+            p1=head1.next;
+            p2=head2;
+        }
+        else
+        {
+            head=head2;
+            p1=head1;
+            p2=head2.next;
+        }
+
+        Node current=head;
+
+        while (p1!=null && p2!=null)
+        {
+            if(p1.data<=p2.data)
+            {
+                //p1 放在current 的后面
+                current.next=p1;
+                current=p1;
+                p1=p1.next;
+            }
+            else
+            {
+                current.next=p2;
+                current=p2;
+                p2=p2.next;
+            }
+
+            //p2 已结束
+            if(p1!=null)
+            {
+                current.next=p1;
+            }
+
+            //p1 已结束
+            if(p2!=null)
+            {
+                current.next=p2;
+            }
+
+        }
+
+        return head;
+
+    }
+
+    public Node mergeListRecursive(Node head0, Node head1) {
 
         Node head=null;
 
@@ -156,12 +233,12 @@ public class NodeBuilder {
         if(head0.data<head1.data)
         {
             head=head0;
-            head.next=mergeList(head0.next,head1);
+            head.next= mergeListRecursive(head0.next,head1);
         }
         else
         {
             head=head1;
-            head.next=mergeList(head1.next,head0);
+            head.next= mergeListRecursive(head1.next,head0);
         }
 
         return head;
@@ -171,7 +248,7 @@ public class NodeBuilder {
     public static void main(String[] args) {
 
         NodeBuilder builder = new NodeBuilder();
-        Node node0 = builder.buildSortedList(new int[]{1, 3, 2});
+        Node node0 = builder.buildSortedList(new int[]{1, 3, 2,4});
         builder.printNodeList(node0);
 
 
@@ -180,6 +257,7 @@ public class NodeBuilder {
 
         builder.printNodeList(node1);
 
+        //Node head = builder.mergeListRecursive(node0, node1);
         Node head = builder.mergeList(node0, node1);
         builder.printNodeList(head);
 
