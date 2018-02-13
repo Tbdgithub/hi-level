@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/hi-level.iml" filepath="$PROJECT_DIR$/.idea/modules/hi-level.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/level-1.iml" filepath="$PROJECT_DIR$/.idea/modules/level-1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/level-1_main.iml" filepath="$PROJECT_DIR$/.idea/modules/level-1_main.iml" group="level-1" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/level-1_test.iml" filepath="$PROJECT_DIR$/.idea/modules/level-1_test.iml" group="level-1" />
     </modules>
   </component>
 </project>

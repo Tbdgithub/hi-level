@@ -6,6 +6,21 @@
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="D:/programs/gradle-4.5.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/level-1" />
+        <option name="gradleHome" value="D:/programs/gradle-4.5.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/level-1" />
+          </set>
+        </option>
       </GradleProjectSettings>
     </option>
   </component>
