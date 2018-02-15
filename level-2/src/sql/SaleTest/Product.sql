@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS Product;
+
+CREATE TABLE Product(
+
+  id INT NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(100) NOT NULL,
+    `price` DOUBLE	NOT NULL,
+    `product_type` VARCHAR(100) not NULL ,
+    PRIMARY KEY ( id )
+  )ENGINE=INNODB DEFAULT CHARSET=utf8;

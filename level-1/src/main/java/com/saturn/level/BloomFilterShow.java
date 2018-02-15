@@ -49,7 +49,9 @@ public class BloomFilterShow {
             }
         };
 
-        BloomFilter<Person> friends = BloomFilter.create(personFunnel, 500, 0.01);
+
+        BloomFilter<Person> friends = BloomFilter.create(personFunnel, 100000000L, 0.05);
+        //BloomFilter<Person> friends = BloomFilter.create(personFunnel, 500, 0.01);
 
         for(Person item :mockPerson())
         {

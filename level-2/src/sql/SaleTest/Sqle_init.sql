@@ -1,0 +1,9 @@
+  INSERT INTO `Sale` (`customer_id`,`Product_id`,`number`)VALUES ('1','1','10');
+  INSERT INTO `Sale` (`customer_id`,`Product_id`,`number`)VALUES ('1','2','20');
+  INSERT INTO `Sale` (`customer_id`,`Product_id`,`number`)VALUES ('1','3','30');
+  INSERT INTO `Sale` (`customer_id`,`Product_id`,`number`)VALUES ('2','1','40');
+  INSERT INTO `Sale` (`customer_id`,`Product_id`,`number`)VALUES ('2','2','50');
+  INSERT INTO `Sale` (`customer_id`,`Product_id`,`number`)VALUES ('2','3','60');
+  INSERT INTO `Sale` (`customer_id`,`Product_id`,`number`)VALUES ('3','1','70');
+  INSERT INTO `Sale` (`customer_id`,`Product_id`,`number`)VALUES ('3','2','80');
+  INSERT INTO `Sale` (`customer_id`,`Product_id`,`number`)VALUES ('3','3','90');
