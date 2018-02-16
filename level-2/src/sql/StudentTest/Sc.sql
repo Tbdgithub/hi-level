@@ -20,7 +20,7 @@ INSERT INTO Sc (`student_id`,`course_id`,`score`) VALUES ('2','2','71');
 INSERT INTO Sc (`student_id`,`course_id`,`score`) VALUES ('2','3','72');
 INSERT INTO Sc (`student_id`,`course_id`,`score`) VALUES ('2','4','73');
 
-INSERT INTO Sc (`student_id`,`course_id`,`score`) VALUES ('2','5','51');
+INSERT INTO Sc (`student_id`,`course_id`,`score`) VALUES ('2','5','50');
 
 INSERT INTO Sc (`student_id`,`course_id`,`score`) VALUES ('3','1','74');
 INSERT INTO Sc (`student_id`,`course_id`,`score`) VALUES ('3','2','71');

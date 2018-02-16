@@ -257,6 +257,7 @@ ORDER BY AVG(sc.score)
 SELECT sc.course_id,MAX(sc.score),MIN(sc.score)  FROM Sc sc  GROUP BY sc.course_id
 或者
 
+有bug score min 值等于max 时 有重复行
 
 SELECT L.course_id AS 课程ID,L.score AS 最高分,R.score AS 最低分  ,
 L.student_id AS  max_sid,R.student_id  AS min_sid ,(SELECT NAME FROM Student a WHERE a.id=L.student_id) 最高学生,
@@ -279,4 +280,72 @@ L.score = (SELECT MAX(IL.score)
 
                   GROUP BY IR.course_id
                    );
+
+my answer: 超级无敌
+//1. 找出每个course_id对应的最小score:Sc 两表自关联，按course_id 分组,取max(score) 形成子表a
+//2. 子表a score 相同的排重:子表1 自关联，按course_id分组，取min(id) ,形成子表m
+//3. 同理形成子表n:course_id 对应的最小score
+//4. m ,n 关联
+
+SELECT  m.course_id, m.score MAX ,n.score MIN FROM
+(
+SELECT * FROM
+(SELECT id,score ,course_id
+ FROM Sc L
+WHERE  L.score = (SELECT MAX(IL.score)
+         FROM Sc AS IL
+                 WHERE L.course_id = IL.course_id
+
+                          GROUP BY IL.course_id)
+
+) a
+
+    WHERE  a.id=( SELECT MIN(b.id) FROM
+
+    (SELECT id,score ,course_id
+ FROM Sc L
+WHERE  L.score = (SELECT MAX(IL.score)
+         FROM Sc AS IL
+                 WHERE L.course_id = IL.course_id
+
+                          GROUP BY IL.course_id)
+
+  ) b
+
+  WHERE a.course_id=b.course_id
+GROUP BY b.course_id  )
+
+) m ,
+
+
+
+(
+SELECT * FROM
+(SELECT id,score ,course_id
+ FROM Sc L
+WHERE  L.score = (SELECT MIN(IL.score)
+         FROM Sc AS IL
+                 WHERE L.course_id = IL.course_id
+
+                          GROUP BY IL.course_id)
+
+) a
+
+    WHERE  a.id=( SELECT MIN(b.id) FROM
+
+    (SELECT id,score ,course_id
+ FROM Sc L
+WHERE  L.score = (SELECT MIN(IL.score)
+         FROM Sc AS IL
+                 WHERE L.course_id = IL.course_id
+
+                          GROUP BY IL.course_id)
+
+  ) b
+
+  WHERE a.course_id=b.course_id
+GROUP BY b.course_id  )
+ORDER BY course_id
+)n
+WHERE m.course_id=n.course_id
 
