@@ -3,7 +3,7 @@ package com.saturn.level.quicksort;
 /**
  * 严版算法
  * 分为三个集合 x<=pivot ,pivot,x>=pivot
- * 中间部分随着计算进行，越来越少，从N,变为pivot ;收敛
+ * 中间部分随着计算进行，越来越少，从N,变为pivot ;low ... high 的数量越来越少
  * 证明:
  * 1.初始条件;low ==0,high= N-1; 此时 low-1 侧集合为空, high+1 侧集合为空。A[0]=pivot ; 左右中间部分有N个, 分为三个集合，左，中,右.
  *  满足左<=pivot,右>= pivot
@@ -13,9 +13,12 @@ package com.saturn.level.quicksort;
  *  如 k>=high+1 and k<=N-1, 则A[k]>=pivot
  *
  * 2.从high向left 扫描,遇到大的，向左，遇到小的停下来; 或者low==high 时，停下来, A[low]=A[high],则 low-1 侧处理完，且左侧所有数均<=pivot
+ *   如low < high, 则 A[low] <=pivot ;则左移动扫过的部分，满足不变式 ;包含 high-1,high;
  *   从low 向right 扫描，遇到小的，向右，遇到大的停下来;或者low==high 时,停下来, A[high]=A[low],则 high+1侧处理完，且右侧所有数均>=pivot
+ *   如low <high ,则A[high]>=pivot ;则向右移动扫过的部分，满足不变式;包含 low-1,low ;
  *
- *   保持不变式
+ *   如low==high ，检查终止条件. 此时A[low/high]值未定，取 pivot 则保持不变式
+ *
  * 3. 终止条件 :low=high ,中间部分有1个.为A[low]
  *     此时,左侧  0 ... low-1 ,共low-1 个,
  *         右侧  high+1 ... N-1 ,共 N-high -1 个,
