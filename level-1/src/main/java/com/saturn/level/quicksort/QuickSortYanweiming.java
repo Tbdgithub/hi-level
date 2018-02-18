@@ -3,25 +3,26 @@ package com.saturn.level.quicksort;
 /**
  * 严版算法
  * 分为三个集合 x<=pivot ,pivot,x>=pivot
- * left: x<=pivot
- * middle:x ;left +1 为 pivot .
- * pivot+1 >=pivot; pivot-1<=pivot
- * right:x>=pivot
- *
+ * 中间部分随着计算进行，越来越少，从N,变为pivot ;收敛
  * 证明:
- * 1.初始条件;low ==0,high= N-1; 此时 low-1 侧集合为空, high+1 侧集合为空。A[low]=pivot ; 左右中间部分有N个
- * 2.从high向left 扫描,遇到大的，向左，遇到小的停下来;
- *   从low 向right 扫描，遇到小的，向右，遇到大的停下来;
- *   结果low-1 侧集合小于等于 pivot; high +1 侧集合大于等于pivot
+ * 1.初始条件;low ==0,high= N-1; 此时 low-1 侧集合为空, high+1 侧集合为空。A[0]=pivot ; 左右中间部分有N个, 分为三个集合，左，中,右.
+ *  满足左<=pivot,右>= pivot
+ *
+ *  不变式表示 ：
+ *  如0<=k<=low-1,则,A[k]<=pivot ;
+ *  如 k>=high+1 and k<=N-1, 则A[k]>=pivot
+ *
+ * 2.从high向left 扫描,遇到大的，向左，遇到小的停下来; 或者low==high 时，停下来, A[low]=A[high],则 low-1 侧处理完，且左侧所有数均<=pivot
+ *   从low 向right 扫描，遇到小的，向右，遇到大的停下来;或者low==high 时,停下来, A[high]=A[low],则 high+1侧处理完，且右侧所有数均>=pivot
+ *
+ *   保持不变式
  * 3. 终止条件 :low=high ,中间部分有1个.为A[low]
- *     此时,左侧
- * 0 ... low-1 ,共low-1 个,
- * 右侧
- * high+1 ... N-1 ,共 N-high -1 个,
- * 左，右侧
- * 相加为N-1 +(low-high) 个,
- * 当low == high 时, 为N-1 个;N-1 +1=N 。所以扫描了所有的集合.
- * A[low] 取pivot ，则曲剧满足不变式.
+ *     此时,左侧  0 ... low-1 ,共low-1 个,
+ *         右侧  high+1 ... N-1 ,共 N-high -1 个,
+ *    左，右侧相加为N-1 +(low-high) 个,
+ *    当low == high 时, 左右侧共为N-1 个;A[low]=A[high] ;取A[low/high] 为pivot ，则总数为N=N-1+1; 满足不变式.且扫描完集合.
+ *    因每一步操作均保持不变式1，故操作结果正确.
+ *
  */
 public class QuickSortYanweiming {
 
