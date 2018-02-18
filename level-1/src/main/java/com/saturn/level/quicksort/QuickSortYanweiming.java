@@ -34,8 +34,18 @@ public class QuickSortYanweiming {
                --high;
            }
 
+//           if(low==high)
+//           {
+//               System.out.println("low==high:"+low);
+//           }
+
+           if(low>high)
+           {
+               System.out.println("impossible,low:"+low+" high:"+high );
+           }
+
            // /* 将比枢轴记录小的记录移到低端 */
-           A[low]=A[high];
+           A[low]=A[high]; //当low=high 时,A[low]=a[high] 值未定
 
            // 将比枢轴记录大的记录移到高端 */
 
@@ -44,12 +54,25 @@ public class QuickSortYanweiming {
                ++low;
            }
 
-           A[high]=A[low];
+
+
+           if(low>high)
+           {
+               System.out.println("impossible,low:"+low+" high:"+high );
+           }
+
+           A[high]=A[low];//当low=high 时,A[low]=a[high] 值未定
 
        }
 
+       //最终low 都 会等于high
+       if(low==high)
+       {
+           System.out.println("low==high:"+low);
+       }
        // /* 枢轴记录到位 */
        A[low]= pivotkey;
+       //当low=high 时, 修正A[low]=a[high] 值为pivot值
 
        return low; /* 返回枢轴位置 */
    }
@@ -83,7 +106,7 @@ public class QuickSortYanweiming {
         }
         else
         {
-            System.out.println("do nothing !!!");
+           // System.out.println("do nothing !!!");
         }
 
 
