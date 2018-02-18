@@ -7,6 +7,21 @@ package com.saturn.level.quicksort;
  * middle:x ;left +1 为 pivot .
  * pivot+1 >=pivot; pivot-1<=pivot
  * right:x>=pivot
+ *
+ * 证明:
+ * 1.初始条件;low ==0,high= N-1; 此时 low-1 侧集合为空, high+1 侧集合为空。A[low]=pivot ; 左右中间部分有N个
+ * 2.从high向left 扫描,遇到大的，向左，遇到小的停下来;
+ *   从low 向right 扫描，遇到小的，向右，遇到大的停下来;
+ *   结果low-1 侧集合小于等于 pivot; high +1 侧集合大于等于pivot
+ * 3. 终止条件 :low=high ,中间部分有1个.为A[low]
+ *     此时,左侧
+ * 0 ... low-1 ,共low-1 个,
+ * 右侧
+ * high+1 ... N-1 ,共 N-high -1 个,
+ * 左，右侧
+ * 相加为N-1 +(low-high) 个,
+ * 当low == high 时, 为N-1 个;N-1 +1=N 。所以扫描了所有的集合.
+ * A[low] 取pivot ，则曲剧满足不变式.
  */
 public class QuickSortYanweiming {
 
